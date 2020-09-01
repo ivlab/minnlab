@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  font: 12px sans-serif;
+}
+
+circle {
+    stroke-width: 1;
+    stroke: gray;
+}
+
+</style>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script>
+
+
+d3.csv("birddata.csv", function(error, data) {
+  if (error) throw error;
+
+  var colarray = [
+    d3.rgb(255,103,0), 
+    d3.rgb(255,165,92),
+    d3.rgb(255,229,186), 
+    d3.rgb(255,255,255), 
+    d3.rgb(190,254,255), 
+    d3.rgb(76,255,227),
+    d3.rgb(0,182,183),
+    d3.rgb(220,220,220)
+  ];
+
+
+  var svg = d3.select("svg");
+
+  var orbCtrX = 200;
+  var orbCtrY = 230;
+
+  var rad = 40.0;
+  var radinc = 24;
+  var basesize = 8;
+  var maxsize = 14;
+
+  var birdsPerRow = [ 14, 19, 21, 23, 24, 23, 23 ];
+
+  var angle = 0;
+  var birdcount = 0;
+  var rowcount = 0;
+
+  data.forEach(function(d) {
+    d.SpeciesNum = +d.SpeciesNum;
+    d.CommonName = d.CommonName.trim();
+    d.SciName = d.SciName.trim();
+    d.Size_0to1 = +d.Size_0to1;
+    d.Incidence0to1_cur = +d.Incidence0to1_cur;
+    d.IncidenceChangeCategory_lo = +d.IncidenceChangeCategory_lo;   
+    d.IncidenceChangeCategory_hi = +d.IncidenceChangeCategory_hi;
+    d.AvgIncidenceChange = +d.AvgIncidenceChange;
+    d.ChangeInMeanCtrNeg1to1_lo = +d.ChangeInMeanCtrNeg1to1_lo;
+    d.ChangeInMeanCtrNeg1to1_hi = +d.ChangeInMeanCtrNeg1to1_hi;
+    d.PrevalenceScore_cur = +d.PrevalenceScore_cur;
+    d.PrevalenceScore_lo = +d.PrevalenceScore_lo;
+    d.PrevalenceScore_hi = +d.PrevalenceScore_hi;
+    d.Length = +d.Length;
+    d.Wingspan = +d.Wingspan;
+
+    d.cx = orbCtrX + rad * Math.cos(-angle);
+    d.cy = orbCtrY + rad * Math.sin(-angle);
+    d.r = d.Size_0to1*(maxsize-basesize) + basesize;
+
+    birdcount++;          
+    if (birdcount == birdsPerRow[rowcount]) {
+      rad += radinc; 
+      birdcount = 0;
+      angle = 0.0;
+      rowcount++;
+    }
+    else {
+      angle += 2.0*Math.PI / birdsPerRow[rowcount];      
+    }
+
+  });
+
+  console.log(data);
+
+
+  function curOrbModuleColor(d) {
+      if (d.Incidence0to1_cur == -99) {
+          return d3.rgb(200,200,200); 
+      }
+      else {
+          return "white";
+      }
+  }
+
+  function loOrbModuleColor(d) {
+      var cindex = d.IncidenceChangeCategory_lo + 3;
+      if (cindex >= 0) {
+         return colarray[cindex];
+      }
+      else {
+         return d3.rgb(200,200,200);
+      } 
+  }
+
+  function hiOrbModuleColor(d) {
+      var cindex = d.IncidenceChangeCategory_hi + 3;
+      if (cindex >= 0) {
+         return colarray[cindex];
+      }
+      else {
+         return d3.rgb(200,200,200);
+      } 
+  }
+
+  var dTooltip = null;
+
+  function pad(num, size) {
+      var s = num+"";
+      while (s.length < size) s = "0" + s;
+      return s;
+  }
+
+  function updateTooltip(d, mouse) {
+      if (!tooltipLocked) {
+          console.log(mouse);
+          dTooltip = d;
+          tooltipsvg.transition()    
+              .duration(200)    
+              .style("opacity", .85);    
+          tooltipsvg.attr("x", function() {
+                  if (mouse[0] < 210.0) {
+                      return 10.0;
+                  }
+                  else if (mouse[0] > 1100.0) {
+                      return 900.0;
+                  }
+                  else {
+                      return (mouse[0] - 200.0);
+                  }
+              })
+              .attr("y", function() {
+                  if (mouse[1] < 200) {
+                      return (mouse[1] + 20);
+                  }
+                  else {
+                      return (mouse[1] - 160);
+                  }
+              })
+
+          curbar.attr("height", d.PrevalenceScore_cur);
+          curbar.attr("y", barChartY - 14 - d.PrevalenceScore_cur);
+          curbar.attr("fill", curOrbModuleColor(d))
+          curbarlabel.attr("y", barChartY - 14 - d.PrevalenceScore_cur - 6);
+          curbarlabel.text(d.PrevalenceScore_cur.toFixed(1));
+
+          lobar.attr("height", d.PrevalenceScore_lo);
+          lobar.attr("y", barChartY - 14 - d.PrevalenceScore_lo);
+          lobar.attr("fill", loOrbModuleColor(d));
+          lobarlabel.attr("y", barChartY - 14 - d.PrevalenceScore_lo - 6);
+          lobarlabel.text(d.PrevalenceScore_lo.toFixed(1));
+
+          hibar.attr("height", d.PrevalenceScore_hi);
+          hibar.attr("y", barChartY - 14 - d.PrevalenceScore_hi);
+          hibar.attr("fill", hiOrbModuleColor(d));
+          hibarlabel.attr("y", barChartY - 14 - d.PrevalenceScore_hi - 6);
+          hibarlabel.text(d.PrevalenceScore_hi.toFixed(1));
+
+          commonnametext.text(d.CommonName);
+          scinametext.text(d.SciName);
+          lengthtext.text("Length: " + d.Length + " in.");
+          wingspantext.text(function() {
+              if (d.Wingspan == 0.0) return "";
+              else return "Wingspan: " + d.Wingspan + " in.";
+          });
+
+          specieslink.attr("xlink:href", "https://www.nrs.fs.fed.us/atlas/bird/RFbirdmod_" + pad(d.SpeciesNum,4) + ".html")  
+          specieslinktext.text("Learn more about " + d.CommonName)
+              .call(wrap, barChartX-65, 10);
+
+          d3.selectAll(".species-" + d.SpeciesNum).style("stroke", "purple").style("stroke-width", 3);
+      }
+  }
+
+  function dismissTooltip(d) {
+      if (!tooltipLocked) {
+          tooltipsvg.transition()    
+              .duration(500)    
+              .style("opacity", 0); 
+          d3.selectAll(".species-" + d.SpeciesNum).style("stroke", "gray").style("stroke-width", 1);
+      }
+  }
+
+  var tooltipLocked = false;
+
+  function lockTooltip() {
+      if (!tooltipLocked) {
+          tooltiprect.style("stroke", "black")
+          specieslinktext.style("visibility", "visible");
+          tooltipLocked = true;
+          d3.event.stopPropagation();
+      }
+      else {
+          unlockTooltip();
+      }
+  }
+
+  function unlockTooltip() {
+      tooltiprect.style("stroke", "#c8c8c8");
+      specieslinktext.style("visibility", "hidden");
+      tooltipLocked = false;
+      dismissTooltip(dTooltip);
+  }
+
+
+  svg.on("click", function() {
+      unlockTooltip();      
+  });
+
+  var enterSelection = svg.selectAll("circle").data(data).enter()
+
+  enterSelection.append("circle")
+     .attr("id", "CurOrb")
+     .attr("class", function(d) { return "species-" + d.SpeciesNum; })
+     .attr("cx", function(d) { return d.cx; })
+     .attr("cy", function(d) { return d.cy; })
+     .attr("r", function(d) { return d.r; })
+     .attr("fill", function(d) { return curOrbModuleColor(d); })
+     .attr("stroke", "gray")
+     .attr("stroke-width", 1)
+     .on("mouseover", function(d) { updateTooltip(d, d3.mouse(this)); }) 
+     .on("mouseout", function(d) { dismissTooltip(d, d3.mouse(this)); })
+     .on("click", function() { lockTooltip(); });
+
+
+ enterSelection.append("circle")
+     .attr("id", "LoOrb")
+     .attr("class", function(d) { return "species-" + d.SpeciesNum; })
+     .attr("cx", function(d) { return d.cx + 450; })
+     .attr("cy", function(d) { return d.cy; })
+     .attr("r", function(d) { return d.r; })
+     .attr("fill", function(d) { return loOrbModuleColor(d); })
+     .attr("stroke", "gray")
+     .attr("stroke-width", 1)
+     .on("mouseover", function(d) { updateTooltip(d, d3.mouse(this)); }) 
+     .on("mouseout", function(d) { dismissTooltip(d, d3.mouse(this)); })
+     .on("click", function() { lockTooltip(); }); 
+
+
+ enterSelection.append("circle")
+     .attr("id", "HiOrb")
+     .attr("class", function(d) { return "species-" + d.SpeciesNum; })
+     .attr("cx", function(d) { return d.cx + 900; })
+     .attr("cy", function(d) { return d.cy; })
+     .attr("r", function(d) { return d.r; })
+     .attr("fill", function(d) { return hiOrbModuleColor(d); })
+     .attr("stroke", "gray")
+     .attr("stroke-width", 1)
+     .on("mouseover", function(d) { updateTooltip(d, d3.mouse(this)); })  
+     .on("mouseout", function(d) { dismissTooltip(d, d3.mouse(this)); })
+     .on("click", function() { lockTooltip(); });
+
+
+svg.append("text")
+    .attr("text-anchor", "middle")
+    .attr("x", 200)
+    .attr("y", 20)
+    .attr("font-size", "16px")
+    .style('fill', 'black')
+    .text("CURRENTLY");
+
+svg.append("text")
+    .attr("text-anchor", "middle")
+    .attr("x", 650)
+    .attr("y", 20)
+    .attr("font-size", "16px")
+    .style('fill', 'black')
+    .text("FUTURE (LOW EMISSIONS SCENARIO)");
+
+svg.append("text")
+    .attr("text-anchor", "middle")
+    .attr("x", 1100)
+    .attr("y", 20)
+    .attr("font-size", "16px")
+    .style('fill', 'black')
+    .text("FUTURE (HIGH EMISSIONS SCENARIO)");
+
+
+  var tooltipsvg = svg.append("svg")
+      .attr("width", 385)
+      .attr("height", 140)
+      .attr("class", "tooltip")      
+      .style("opacity", 0);
+
+  var tooltiprect = tooltipsvg.append("rect")
+      .attr("x", 0)
+      .attr("y", 0)
+      .attr("width", 385)
+      .attr("height", 140)
+      .attr("fill", "white")
+      .attr("stroke", "#c8c8c8")
+      .attr("pointer-events", "none");
+
+  var barChartX = 270;
+  var barChartY = 135;
+
+  var curbar = tooltipsvg.append("rect")
+      .attr("x", barChartX)
+      .attr("y", barChartY - 10)
+      .attr("width", 24)
+      .attr("height", 50)
+      .attr("stroke", "black");
+
+  var curbarlabel = tooltipsvg.append("text")
+      .attr("text-anchor", "middle")
+      .attr("x", barChartX + 12)
+      .attr("y", barChartY - 10);
+    
+  tooltipsvg.append("text")
+      .attr("text-anchor", "middle")
+      .attr("x", barChartX + 12)
+      .attr("y", barChartY)
+      .text("CUR");  
+
+  var lobar = tooltipsvg.append("rect")
+      .attr("x", barChartX + 35)
+      .attr("y", barChartY - 10)
+      .attr("width", 24)
+      .attr("height", 40)
+      .attr("stroke", "black");
+
+  var lobarlabel = tooltipsvg.append("text")
+      .attr("text-anchor", "middle")
+      .attr("x", barChartX + 47)
+      .attr("y", barChartY - 10);
+
+  tooltipsvg.append("text")
+      .attr("text-anchor", "middle")
+      .attr("x", barChartX + 47)
+      .attr("y", barChartY)
+      .text("LOW");  
+
+
+
+  var hibar = tooltipsvg.append("rect")
+      .attr("x", barChartX + 70)
+      .attr("y", barChartY - 10)
+      .attr("width", 24)
+      .attr("height", 30)
+      .attr("stroke", "black");
+
+  var hibarlabel = tooltipsvg.append("text")
+      .attr("text-anchor", "middle")
+      .attr("x", barChartX + 82)
+      .attr("y", barChartY - 10);
+
+  tooltipsvg.append("text")
+      .attr("text-anchor", "middle")
+      .attr("x", barChartX + 82)
+      .attr("y", barChartY)
+      .text("HIGH");  
+
+
+  // x axis
+  tooltipsvg.append("rect")
+      .attr("x", barChartX - 10)
+      .attr("y", barChartY - 14)
+      .attr("width", 114)
+      .attr("height", 1)
+      .attr("fill", "black");   
+
+
+  // y axis
+  tooltipsvg.append("rect")
+      .attr("x", barChartX - 10)
+      .attr("y", barChartY - 114)
+      .attr("width", 1)
+      .attr("height", 100)
+      .attr("fill", "black");   
+
+  tooltipsvg.append("text")
+      .attr("text-anchor", "end")
+      .attr("x", barChartX - 12)
+      .attr("y", barChartY - 10)
+      .text("0"); 
+
+  tooltipsvg.append("text")
+      .attr("text-anchor", "end")
+      .attr("x", barChartX - 12)
+      .attr("y", barChartY - 60)
+      .text("50"); 
+
+  tooltipsvg.append("text")
+      .attr("text-anchor", "end")
+      .attr("x", barChartX - 12)
+      .attr("y", barChartY - 110)
+      .text("100"); 
+
+  tooltipsvg.append("text")
+      .attr("text-anchor", "middle")
+      //.attr("x", barChartX - 20)
+      //.attr("y", barChartY - 57)
+      .text("PREVALENCE SCORE")
+      .attr("transform", "translate(" + (barChartX-40) + "," + (barChartY-67)
+            + ")rotate(-90)"); 
+
+  var commonnametext = tooltipsvg.append("text")
+      .attr("text-anchor", "start")
+      .attr("x", 10)
+      .attr("y", 20)
+      .append("tspan")
+      .style("font-weight", "bold")
+      .style("font-size", "14px");
+
+  var scinametext = tooltipsvg.append("text")
+      .attr("text-anchor", "start")
+      .attr("x", 10)
+      .attr("y", 34)
+      .append("tspan")
+      .style("font-style", "italic");
+
+
+  var lengthtext = tooltipsvg.append("text")
+      .attr("text-anchor", "start")
+      .attr("x", 10)
+      .attr("y", 60);
+
+  var wingspantext = tooltipsvg.append("text")
+      .attr("text-anchor", "start")
+      .attr("x", 10)
+      .attr("y", 80);
+
+
+  var specieslink = tooltipsvg.append("a")
+      .attr("target", "_blank")				 
+      .attr("xlink:href", "https://www.nrs.fs.fed.us/atlas/bird/bird_atlas.html");
+  var specieslinktext = specieslink.append("text")
+      .attr("fill", "blue")
+      .attr("text-anchor", "start")
+      .text("Learn about this bird species!")
+      .style("visibility", "hidden")
+      .attr("x", 10)
+      .attr("y", 100)
+      .attr("dy", 1.2);
+
+
+  var legendY = 465;
+
+  // LEGEND: COLUMN 1  (0 to 433)
+
+  // Current / Not-Present
+  svg.append("text")
+      .attr("text-anchor", "start")
+      .attr("x", 20)
+      .attr("y", legendY)
+      .append("tspan")
+      .style("font-size", "14px")
+      .text("Color indicates change in prevalence of each species in MN.");
+
+  // White
+  svg.append("text")
+      .attr("text-anchor", "start")
+      .attr("x", 60)
+      .attr("y", legendY+25)
+      .attr("fill", "gray")
+      .text("White is a baseline, the current prevalence for each species.");
+
+  svg.append("circle")
+     .attr("r", basesize)
+     .attr("cx", 40)
+     .attr("cy", legendY+25-basesize/2)
+     .style("fill", colarray[3]);       
+
+  // Gray
+  svg.append("text")
+      .attr("text-anchor", "start")
+      .attr("x", 60)
+      .attr("y", legendY+55)
+      .attr("fill", "gray")
+      .text("Gray means the species is not generally present in MN.");
+
+  svg.append("circle")
+     .attr("r", basesize)
+     .attr("cx", 40)
+     .attr("cy", legendY+55-basesize/2)
+     .style("fill", colarray[7]);       
+
+  // Size
+  svg.append("text")
+      .attr("text-anchor", "start")
+      .attr("x", 20)
+      .attr("y", legendY+90)
+      .append("tspan")
+      .style("font-size", "14px")
+      .text("Radius is proportional to the typical size of the birds.");
+
+  // Small
+  svg.append("text")
+      .attr("text-anchor", "start")
+      .attr("x", 60)
+      .attr("y", legendY+115)
+      .attr("fill", "gray")
+      .text("The smallest birds (Ruby-throated Hummingbird, length = 3 in.)");
+
+  svg.append("circle")
+     .attr("r", basesize)
+     .attr("cx", 40)
+     .attr("cy", legendY+115-basesize/2)
+     .style("fill", colarray[3]);       
+
+  // Large
+  svg.append("text")
+      .attr("text-anchor", "start")
+      .attr("x", 60)
+      .attr("y", legendY+145)
+      .attr("fill", "gray")
+      .text("The largest birds (Turkey Vulture, wingspan = 72 in.)");
+
+  svg.append("circle")
+     .attr("r", maxsize)
+     .attr("cx", 40)
+     .attr("cy", legendY+145-maxsize/2)
+     .style("fill", colarray[3]);  
+
+
+  // LEGEND: COLUMN 2  (434 to 866)
+
+  svg.append("text")
+      .attr("text-anchor", "start")
+      .attr("x", 470)
+      .attr("y", legendY)
+      .append("tspan")
+      .style("font-size", "14px")
+      .text("Some will increase in prevalence, some will be new to MN.");
+
+  // > 15% Increase
+  svg.append("text")
+      .attr("text-anchor", "start")
+      .attr("x", 510)
+      .attr("y", legendY+25)
+      .attr("dy", 1.2)
+      .attr("fill", "gray")
+      .text("> 15% increase in prevalence");
+
+  svg.append("circle")
+     .attr("r", basesize)
+     .attr("cx", 490)
+     .attr("cy", legendY+25-basesize/2)
+     .style("fill", colarray[4]);       
+
+  // > 45% Increase
+  svg.append("text")
+      .attr("text-anchor", "start")
+      .attr("x", 510)
+      .attr("y", legendY+55)
+      .attr("dy", 1.2)
+      .attr("fill", "gray")
+      .text("> 45% increase in prevalence");
+
+  svg.append("circle")
+     .attr("r", basesize)
+     .attr("cx", 490)
+     .attr("cy", legendY+55-basesize/2)
+     .style("fill", colarray[5]);  
+
+  // > 75% Increase
+  svg.append("text")
+      .attr("text-anchor", "start")
+      .attr("x", 510)
+      .attr("y", legendY+85)
+      .attr("dy", 1.2)
+      .attr("fill", "gray")
+      .text("> 75% increase in prevalence");
+
+  svg.append("circle")
+     .attr("r", basesize)
+     .attr("cx", 490)
+     .attr("cy", legendY+85-basesize/2)
+     .style("fill", colarray[6]);  
+
+
+  // LEGEND: COLUMN 3  (867 to 1300)
+
+  svg.append("text")
+      .attr("text-anchor", "start")
+      .attr("x", 920)
+      .attr("y", legendY)
+      .append("tspan")
+      .style("font-size", "14px")
+      .text("Many will decrease in prevalance, or leave MN entirely.");
+
+  // > 15% Decrease
+  svg.append("text")
+      .attr("text-anchor", "start")
+      .attr("x", 960)
+      .attr("y", legendY+25)
+      .attr("dy", 1.2)
+      .attr("fill", "gray")
+      .text("> 15% decrease in prevalence");
+
+  svg.append("circle")
+     .attr("r", basesize)
+     .attr("cx", 940)
+     .attr("cy", legendY+25-basesize/2)
+     .style("fill", colarray[2]);       
+
+  // > 45% Decrease
+  svg.append("text")
+      .attr("text-anchor", "start")
+      .attr("x", 960)
+      .attr("y", legendY+55)
+      .attr("dy", 1.2)
+      .attr("fill", "gray")
+      .text("> 45% decrease in prevalence");
+
+  svg.append("circle")
+     .attr("r", basesize)
+     .attr("cx", 940)
+     .attr("cy", legendY+55-basesize/2)
+     .style("fill", colarray[1]);  
+
+  // > 75% Decrease
+  svg.append("text")
+      .attr("text-anchor", "start")
+      .attr("x", 960)
+      .attr("y", legendY+85)
+      .attr("dy", 1.2)
+      .attr("fill", "gray")
+      .text("> 75% decrease in prevalence");
+
+  svg.append("circle")
+     .attr("r", basesize)
+     .attr("cx", 940)
+     .attr("cy", legendY+85-basesize/2)
+     .style("fill", colarray[0]);  
+
+
+  // SEPARATION BARS
+  svg.append("rect")
+      .attr("x", 425)
+      .attr("y", 40)
+      .attr("width", 1)
+      .attr("height", 380)
+      .style("fill", "#c8c8c8");
+
+  svg.append("rect")
+      .attr("x", 875)
+      .attr("y", 40)
+      .attr("width", 1)
+      .attr("height", 380)
+      .style("fill", "#c8c8c8");
+});
+
+
+function highlight(classname) {
+  if (classname == null) d3.selectAll(classname).style("stroke", "gray");
+  else d3.selectAll(classname).style("stroke", "purple");
+}
+
+// https://bl.ocks.org/mbostock/7555321
+function wrap(text, width, xpos) {
+  text.each(function() {
+    var text = d3.select(this),
+        words = text.text().split(/\s+/).reverse(),
+        word,
+        line = [],
+        lineNumber = 0,
+        lineHeight = 1.1, // ems
+        y = text.attr("y"),
+        dy = parseFloat(text.attr("dy")),
+        tspan = text.text(null).append("tspan").attr("x", xpos).attr("y", y).attr("dy", dy + "em");
+    while (word = words.pop()) {
+      line.push(word);
+      tspan.text(line.join(" "));
+      if (tspan.node().getComputedTextLength() > width) {
+        line.pop();
+        tspan.text(line.join(" "));
+        line = [word];
+        tspan = text.append("tspan").attr("x", xpos).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+      }
+    }
+  });
+}
+
+
+</script>
+
+<body>
+<svg viewBox="0 0 1300 625" preserveAspectRatio="xMidYMid"></svg>
+</body>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="home/style.css">
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+        <title>HOME — MINN LAB</title>
+    </head>
+    
+    <body>
+        <nav class="topnav">
+            <div class="topnav-bar">
+                <a href="index.html">
+                    <img class="topnav-logo" src="icons/MINN-LAB-Logo.png" alt="MINN LAB Logo">
+                </a>
+                <button onclick="toggleTopnavMenu()">
+                    <img src="icons/bars.svg" alt="Menu Icon">
+                </button>
+            </div>
+            
+            <div id="topnav-menu">
+                <a class="current-page" href="home.html">HOME</a>
+                <a href="instagram.html">INSTAGRAM</a>
+                <div class="project-list">
+                    <a>PROJECTS</a>
+                    <a href="orbacles.html">ORBACLES</a>
+                    <a href="weather-report.html">WEATHER REPORT</a>
+                    <a href="cityscope.html">CITYSCOPE</a>
+                    <a href="postography.html">POSTOGRAPHY</a>
+                </div>
+                <a href="about.html">ABOUT</a>
+                <a href="contact.html">CONTACT</a>
+            </div>
+        </nav>
+        <div id="topnav-overlay"></div>
+
+
+        <nav class="sidenav">
+            <a href="index.html"><img class="sidenav-logo" src="icons/MINN-LAB-Logo.png" alt=""></a>
+            <a class="current-page" href="home.html">HOME</a>
+            <a href="instagram.html">INSTAGRAM</a>
+            <div class="projects">
+                <a onclick="toggleProjectList()">PROJECTS</a>
+                <div id="project-list">
+                    <a href="orbacles.html">ORBACLES</a>
+                    <a href="weather-report.html">WEATHER REPORT</a>
+                    <a href="cityscope.html">CITYSCOPE</a>
+                    <a href="postography.html">POSTOGRAPHY</a>
+                </div>
+            </div>
+            <a href="about.html">ABOUT</a>
+            <a href="contact.html">CONTACT</a>
+        </nav>
+
+        <div class="main">
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-slide active-slide">
+                        <img src="home/img/img_01.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="home/img/img_02.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="home/img/img_03.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="home/img/img_04.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="home/img/img_05.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="home/img/img_06.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="home/img/img_07.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="home/img/img_08.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="home/img/img_09.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="home/img/img_10.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="home/img/img_11.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="home/img/img_12.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="home/img/img_13.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="home/img/img_14.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="home/img/img_15.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="home/img/img_16.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="home/img/img_17.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="home/img/img_18.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="home/img/img_19.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="home/img/img_20.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="home/img/img_21.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="home/img/img_22.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="home/img/img_23.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="home/img/img_24.jpg" alt="">
+                    </div>
+                    
+                    <button class="prevBtn" onclick="advanceSlide(-1)">&#10094;</a>
+                    <button class="nextBtn" onclick="advanceSlide(1)">&#10095;</a>
+                </div>
+        
+                <div class="dots">
+                    <span class="dot active-dot" onclick="showSlide(0)"></span>
+                    <span class="dot" onclick="showSlide(1)"></span>
+                    <span class="dot" onclick="showSlide(2)"></span>
+                    <span class="dot" onclick="showSlide(3)"></span>
+                    <span class="dot" onclick="showSlide(4)"></span>
+                    <span class="dot" onclick="showSlide(5)"></span>
+                    <span class="dot" onclick="showSlide(6)"></span>
+                    <span class="dot" onclick="showSlide(7)"></span>
+                    <span class="dot" onclick="showSlide(8)"></span>
+                    <span class="dot" onclick="showSlide(9)"></span>
+                    <span class="dot" onclick="showSlide(10)"></span>
+                    <span class="dot" onclick="showSlide(11)"></span>
+                    <span class="dot" onclick="showSlide(12)"></span>
+                    <span class="dot" onclick="showSlide(13)"></span>
+                    <span class="dot" onclick="showSlide(14)"></span>
+                    <span class="dot" onclick="showSlide(15)"></span>
+                    <span class="dot" onclick="showSlide(16)"></span>
+                    <span class="dot" onclick="showSlide(17)"></span>
+                    <span class="dot" onclick="showSlide(18)"></span>
+                    <span class="dot" onclick="showSlide(19)"></span>
+                    <span class="dot" onclick="showSlide(20)"></span>
+                    <span class="dot" onclick="showSlide(21)"></span>
+                    <span class="dot" onclick="showSlide(22)"></span>
+                    <span class="dot" onclick="showSlide(23)"></span>
+                </div>
+            </div>
+        </div>
+
+        <script src="home/app.js"></script>
+    </body>
+</html>

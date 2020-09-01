@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="postography-postcards/style.css">
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+        <title>POSTOGRAPHY POSTCARDS — MINN LAB</title>
+    </head>
+    
+    <body>
+        <nav class="topnav">
+            <div class="topnav-bar">
+                <a href="index.html">
+                    <img class="topnav-logo" src="icons/MINN-LAB-Logo.png" alt="MINN LAB Logo">
+                </a>
+                <button onclick="toggleTopnavMenu()">
+                    <img src="icons/bars.svg" alt="Menu Icon">
+                </button>
+            </div>
+            
+            <div id="topnav-menu">
+                <a href="home.html">HOME</a>
+                <a href="instagram.html">INSTAGRAM</a>
+                <div class="project-list">
+                    <a>PROJECTS</a>
+                    <a href="orbacles.html">ORBACLES</a>
+                    <a href="weather-report.html">WEATHER REPORT</a>
+                    <a href="cityscope.html">CITYSCOPE</a>
+                    <a class="current-page" href="postography.html">POSTOGRAPHY</a>
+                </div>
+                <a href="about.html">ABOUT</a>
+                <a href="contact.html">CONTACT</a>
+            </div>
+        </nav>
+        <div id="topnav-overlay"></div>
+
+
+        <nav class="sidenav">
+            <a href="index.html"><img class="sidenav-logo" src="icons/MINN-LAB-Logo.png" alt=""></a>
+            <a href="home.html">HOME</a>
+            <a href="instagram.html">INSTAGRAM</a>
+            <div class="projects">
+                <a onclick="toggleProjectList()">PROJECTS</a>
+                <div id="project-list">
+                    <a href="orbacles.html">ORBACLES</a>
+                    <a href="weather-report.html">WEATHER REPORT</a>
+                    <a href="cityscope.html">CITYSCOPE</a>
+                    <a class="current-page" href="postography.html">POSTOGRAPHY</a>
+                </div>
+            </div>
+            <a href="about.html">ABOUT</a>
+            <a href="contact.html">CONTACT</a>
+        </nav>
+
+        <div class="main">
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-slide active-slide">
+                        <img src="postography-postcards/img/001.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/002.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/003.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/004.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/005.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/006.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/007.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/008.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/009.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/010.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/011.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/012.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/013.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/014.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/015.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/016.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/017.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/018.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/019.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/020.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/021.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/022.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/023.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/024.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/025.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/026.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/027.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/028.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/029.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/030.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/031.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/032.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/033.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/034.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/035.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/036.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/037.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/038.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/039.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/040.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/041.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/042.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/043.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/044.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/045.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/046.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/047.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/048.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/049.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/050.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/051.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/052.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/053.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/054.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/055.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/056.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/057.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/058.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/059.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/060.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/061.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/062.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/063.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/064.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/065.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/066.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/067.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/068.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/069.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/070.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/071.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/072.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/073.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/074.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/075.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/076.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/077.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/078.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/079.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/080.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/081.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/082.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/083.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/084.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/085.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/086.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/087.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/088.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/089.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/090.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/091.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/092.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/093.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/094.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/095.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/096.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/097.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/098.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/099.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography-postcards/img/100.jpg" alt="">
+                    </div>
+        
+                    <button class="prevBtn" onclick="advanceSlide(-1)">&#10094;</a>
+                    <button class="nextBtn" onclick="advanceSlide(1)">&#10095;</a>
+                </div>
+        
+                <div class="dots">
+                    <span class="dot active-dot" onclick="showSlide(0)"></span>
+                    <span class="dot" onclick="showSlide(1)"></span>
+                    <span class="dot" onclick="showSlide(2)"></span>
+                    <span class="dot" onclick="showSlide(3)"></span>
+                    <span class="dot" onclick="showSlide(4)"></span>
+                    <span class="dot" onclick="showSlide(5)"></span>
+                    <span class="dot" onclick="showSlide(6)"></span>
+                    <span class="dot" onclick="showSlide(7)"></span>
+                    <span class="dot" onclick="showSlide(8)"></span>
+                    <span class="dot" onclick="showSlide(9)"></span>
+                    <span class="dot" onclick="showSlide(10)"></span>
+                    <span class="dot" onclick="showSlide(11)"></span>
+                    <span class="dot" onclick="showSlide(12)"></span>
+                    <span class="dot" onclick="showSlide(13)"></span>
+                    <span class="dot" onclick="showSlide(14)"></span>
+                    <span class="dot" onclick="showSlide(15)"></span>
+                    <span class="dot" onclick="showSlide(16)"></span>
+                    <span class="dot" onclick="showSlide(17)"></span>
+                    <span class="dot" onclick="showSlide(18)"></span>
+                    <span class="dot" onclick="showSlide(19)"></span>
+                    <span class="dot" onclick="showSlide(20)"></span>
+                    <span class="dot" onclick="showSlide(21)"></span>
+                    <span class="dot" onclick="showSlide(22)"></span>
+                    <span class="dot" onclick="showSlide(23)"></span>
+                    <span class="dot" onclick="showSlide(24)"></span>
+                    <span class="dot" onclick="showSlide(25)"></span>
+                    <span class="dot" onclick="showSlide(26)"></span>
+                    <span class="dot" onclick="showSlide(27)"></span>
+                    <span class="dot" onclick="showSlide(28)"></span>
+                    <span class="dot" onclick="showSlide(29)"></span>
+                    <span class="dot" onclick="showSlide(30)"></span>
+                    <span class="dot" onclick="showSlide(31)"></span>
+                    <span class="dot" onclick="showSlide(32)"></span>
+                    <span class="dot" onclick="showSlide(33)"></span>
+                    <span class="dot" onclick="showSlide(34)"></span>
+                    <span class="dot" onclick="showSlide(35)"></span>
+                    <span class="dot" onclick="showSlide(36)"></span>
+                    <span class="dot" onclick="showSlide(37)"></span>
+                    <span class="dot" onclick="showSlide(38)"></span>
+                    <span class="dot" onclick="showSlide(39)"></span>
+                    <span class="dot" onclick="showSlide(40)"></span>
+                    <span class="dot" onclick="showSlide(41)"></span>
+                    <span class="dot" onclick="showSlide(42)"></span>
+                    <span class="dot" onclick="showSlide(43)"></span>
+                    <span class="dot" onclick="showSlide(44)"></span>
+                    <span class="dot" onclick="showSlide(45)"></span>
+                    <span class="dot" onclick="showSlide(46)"></span>
+                    <span class="dot" onclick="showSlide(47)"></span>
+                    <span class="dot" onclick="showSlide(48)"></span>
+                    <span class="dot" onclick="showSlide(49)"></span>
+                    <span class="dot" onclick="showSlide(50)"></span>
+                    <span class="dot" onclick="showSlide(51)"></span>
+                    <span class="dot" onclick="showSlide(52)"></span>
+                    <span class="dot" onclick="showSlide(53)"></span>
+                    <span class="dot" onclick="showSlide(54)"></span>
+                    <span class="dot" onclick="showSlide(55)"></span>
+                    <span class="dot" onclick="showSlide(56)"></span>
+                    <span class="dot" onclick="showSlide(57)"></span>
+                    <span class="dot" onclick="showSlide(58)"></span>
+                    <span class="dot" onclick="showSlide(59)"></span>
+                    <span class="dot" onclick="showSlide(60)"></span>
+                    <span class="dot" onclick="showSlide(61)"></span>
+                    <span class="dot" onclick="showSlide(62)"></span>
+                    <span class="dot" onclick="showSlide(63)"></span>
+                    <span class="dot" onclick="showSlide(64)"></span>
+                    <span class="dot" onclick="showSlide(65)"></span>
+                    <span class="dot" onclick="showSlide(66)"></span>
+                    <span class="dot" onclick="showSlide(67)"></span>
+                    <span class="dot" onclick="showSlide(68)"></span>
+                    <span class="dot" onclick="showSlide(69)"></span>
+                    <span class="dot" onclick="showSlide(70)"></span>
+                    <span class="dot" onclick="showSlide(71)"></span>
+                    <span class="dot" onclick="showSlide(72)"></span>
+                    <span class="dot" onclick="showSlide(73)"></span>
+                    <span class="dot" onclick="showSlide(74)"></span>
+                    <span class="dot" onclick="showSlide(75)"></span>
+                    <span class="dot" onclick="showSlide(76)"></span>
+                    <span class="dot" onclick="showSlide(77)"></span>
+                    <span class="dot" onclick="showSlide(78)"></span>
+                    <span class="dot" onclick="showSlide(79)"></span>
+                    <span class="dot" onclick="showSlide(80)"></span>
+                    <span class="dot" onclick="showSlide(81)"></span>
+                    <span class="dot" onclick="showSlide(82)"></span>
+                    <span class="dot" onclick="showSlide(83)"></span>
+                    <span class="dot" onclick="showSlide(84)"></span>
+                    <span class="dot" onclick="showSlide(85)"></span>
+                    <span class="dot" onclick="showSlide(86)"></span>
+                    <span class="dot" onclick="showSlide(87)"></span>
+                    <span class="dot" onclick="showSlide(88)"></span>
+                    <span class="dot" onclick="showSlide(89)"></span>
+                    <span class="dot" onclick="showSlide(90)"></span>
+                    <span class="dot" onclick="showSlide(91)"></span>
+                    <span class="dot" onclick="showSlide(92)"></span>
+                    <span class="dot" onclick="showSlide(93)"></span>
+                    <span class="dot" onclick="showSlide(94)"></span>
+                    <span class="dot" onclick="showSlide(95)"></span>
+                    <span class="dot" onclick="showSlide(96)"></span>
+                    <span class="dot" onclick="showSlide(97)"></span>
+                    <span class="dot" onclick="showSlide(98)"></span>
+                    <span class="dot" onclick="showSlide(99)"></span>
+                </div>
+            </div>
+        </div>
+
+        <script src="postography-postcards/app.js"></script>
+    </body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="weather-report/style.css">
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+        <title>WEATHER REPORT — MINN LAB</title>
+    </head>
+    
+    <body>
+        <nav class="topnav">
+            <div class="topnav-bar">
+                <a href="index.html">
+                    <img class="topnav-logo" src="icons/MINN-LAB-Logo.png" alt="MINN LAB Logo">
+                </a>
+                <button onclick="toggleTopnavMenu()">
+                    <img src="icons/bars.svg" alt="Menu Icon">
+                </button>
+            </div>
+            
+            <div id="topnav-menu">
+                <a href="home.html">HOME</a>
+                <a href="instagram.html">INSTAGRAM</a>
+                <div class="project-list">
+                    <a>PROJECTS</a>
+                    <a href="orbacles.html">ORBACLES</a>
+                    <a class="current-page" href="weather-report.html">WEATHER REPORT</a>
+                    <a href="cityscope.html">CITYSCOPE</a>
+                    <a href="postography.html">POSTOGRAPHY</a>
+                </div>
+                <a href="about.html">ABOUT</a>
+                <a href="contact.html">CONTACT</a>
+            </div>
+        </nav>
+        <div id="topnav-overlay"></div>
+
+
+        <nav class="sidenav">
+            <a href="index.html"><img class="sidenav-logo" src="icons/MINN-LAB-Logo.png" alt=""></a>
+            <a href="home.html">HOME</a>
+            <a href="instagram.html">INSTAGRAM</a>
+            <div class="projects">
+                <a onclick="toggleProjectList()">PROJECTS</a>
+                <div id="project-list">
+                    <a href="orbacles.html">ORBACLES</a>
+                    <a class="current-page" href="weather-report.html">WEATHER REPORT</a>
+                    <a href="cityscope.html">CITYSCOPE</a>
+                    <a href="postography.html">POSTOGRAPHY</a>
+                </div>
+            </div>
+            <a href="about.html">ABOUT</a>
+            <a href="contact.html">CONTACT</a>
+        </nav>
+
+        <div class="main">
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-slide active-slide">
+                        <img src="weather-report/img/img_01.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="weather-report/img/img_02.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="weather-report/img/img_03.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="weather-report/img/img_04.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="weather-report/img/img_05.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="weather-report/img/img_06.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="weather-report/img/img_07.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="weather-report/img/img_08.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="weather-report/img/img_09.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="weather-report/img/img_10.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="weather-report/img/img_11.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="weather-report/img/img_12.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="weather-report/img/img_13.jpg" alt="">
+                    </div>
+
+                    <button class="prevBtn">&#10094;</a>
+                    <button class="nextBtn">&#10095;</a>
+                </div>
+            </div>
+
+            <h2>
+                WEATHER REPORT
+                <br>
+                Minneapolis, MN
+                <br>
+                2016
+            </h2>
+            <p>MINN_LAB’s installation for Northern Spark, entitled “Weather Report”, was the first in a series of evolving iterations, engaging the public’s perception of climate change. This installation illustrated a varying density of both qualitative and quantitative data, generated during the night by the active involvement and response of the public participant as well as through simple weather measurements using classical equipment. A suspended curtain of luminous inflatables along the river’s edge will depict this evolving set of data over the course of the night. The approach from the below the stone arch bridge side offers a more abstract representation of color, while the pathway directly along the inflatables will provide a more detailed and intimate display of information. The installation seeks to represent a range of public perception and opinion around the notion of climate change and our tangible role in it as a society, both individually and collectively. The long term goal of this ongoing project is to catalog the data, moving towards digital and mobile representations of it, thereby freeing it up to manifest at other venues and in other communities. The intent is to develop a continually evolving human-driven perception report.</p>
+
+            <div class="thumbnails">
+                <div class="thumbnail" style="background-image: url('weather-report/img/thumb1.jpg')">
+                    <a href="weather-report-design.html"></a>
+                    <div class="caption">
+                        DESIGN
+                    </div>
+                </div>
+                <div class="thumbnail" style="background-image: url('weather-report/img/thumb2.jpg')">
+                    <a href="weather-report-process.html"></a>
+                    <div class="caption">
+                        PROCESS
+                    </div>
+                </div>
+                <div class="thumbnail" style="background-image: url('weather-report/img/thumb3.jpg')">
+                    <a href="weather-report-event.html"></a>
+                    <div class="caption">
+                        NORTHERN SPARK EVENT
+                    </div>
+                </div>
+            </div>
+
+            <div class="iframe-container">
+                <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/J0uY-TnbwqU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <script src="weather-report/app.js"></script>
+    </body>
+</html>

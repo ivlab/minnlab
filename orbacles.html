@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="orbacles/style.css">
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+        <title>ORBACLES — MINN LAB</title>
+    </head>
+    
+    <body>
+        <nav class="topnav">
+            <div class="topnav-bar">
+                <a href="index.html">
+                    <img class="topnav-logo" src="icons/MINN-LAB-Logo.png" alt="MINN LAB Logo">
+                </a>
+                <button onclick="toggleTopnavMenu()">
+                    <img src="icons/bars.svg" alt="Menu Icon">
+                </button>
+            </div>
+            
+            <div id="topnav-menu">
+                <a href="home.html">HOME</a>
+                <a href="instagram.html">INSTAGRAM</a>
+                <div class="project-list">
+                    <a>PROJECTS</a>
+                    <a class="current-page" href="orbacles.html">ORBACLES</a>
+                    <a href="weather-report.html">WEATHER REPORT</a>
+                    <a href="cityscope.html">CITYSCOPE</a>
+                    <a href="postography.html">POSTOGRAPHY</a>
+                </div>
+                <a href="about.html">ABOUT</a>
+                <a href="contact.html">CONTACT</a>
+            </div>
+        </nav>
+        <div id="topnav-overlay"></div>
+
+
+        <nav class="sidenav">
+            <a href="index.html"><img class="sidenav-logo" src="icons/MINN-LAB-Logo.png" alt=""></a>
+            <a href="home.html">HOME</a>
+            <a href="instagram.html">INSTAGRAM</a>
+            <div class="projects">
+                <a onclick="toggleProjectList()">PROJECTS</a>
+                <div id="project-list">
+                    <a class="current-page" href="orbacles.html">ORBACLES</a>
+                    <a href="weather-report.html">WEATHER REPORT</a>
+                    <a href="cityscope.html">CITYSCOPE</a>
+                    <a href="postography.html">POSTOGRAPHY</a>
+                </div>
+            </div>
+            <a href="about.html">ABOUT</a>
+            <a href="contact.html">CONTACT</a>
+        </nav>
+
+        <div class="main">
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-slide active-slide">
+                        <img src="orbacles/img/img_01.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="orbacles/img/img_02.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="orbacles/img/img_03.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="orbacles/img/img_04.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="orbacles/img/img_05.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="orbacles/img/img_06.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="orbacles/img/img_07.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="orbacles/img/img_08.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="orbacles/img/img_09.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="orbacles/img/img_10.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="orbacles/img/img_11.jpg" alt="">
+                    </div>
+
+                    <button class="prevBtn">&#10094;</a>
+                    <button class="nextBtn">&#10095;</a>
+                </div>
+            </div>
+
+            <h2>
+                ORBACLES
+                <br>
+                Minneapolis, MN
+                <br>
+                2017
+            </h2>
+            <p>Orbacles is a triad of spherical environments that connect visitors to the reality of climate change through the story of birds in Minnesota and the language of our senses. As both a record and a speculation about the future through the end of the century, Orbacles communicates the current and anticipated shift of birds due to species loss and migration related to climate effects.</p>
+            <p>Each of the 147 bird species in the Climate Change Bird Atlas [1,2] is represented as a module – an individual birdhouse, feeder, or bath – with a hood that is sized to be proportional to the typical length and wingspan of the species [3]. The placement is consistent, so you will find one module for each species at a consistent location within each Orbacle.</p>
+
+            <h3>THE THREE ORBACLES:  UNDERSTANDING FUTURE CHANGE</h3>
+            <p>By 2100 the world will have changed in ways that are hard to imagine.  To understand the possible impacts of these changes, scientists often compare multiple possible scenarios.  The future scenarios represented in Orbacles come from the Special Report on Emissions Scenarios (SRES), developed by the Intergovernmental Panel on Climate Change (IPCC). The scenarios describe future worlds that range from very rapid economic growth and technological change to high levels of environmental protection, from low to high global populations, and from high to low greenhouse gas emissions.</p>
+            <p><strong>Orbacle A | Shelter</strong> shows the current situation, using birdhouse modules. <strong>Orbacle B | Feeder</strong> shows a low emissions scenario that reflects “high level of conservation and reduction of CO2 emissions” [4], using bird feeder modules. <strong>Orbacle C | Bath</strong> shows a high emissions scenario, assuming that “the current [fossil fuel] emissions trends continue for the next several decades without modification” [4], using bird bath modules. To “read” the data and compare the different scenarios, look for changes in color compared to Orbacle A.</p>
+        
+            <h3>COLOR INDICATES CHANGE IN PREVALENCE</h3>
+            <p>White represents a baseline – the current situation. If everything stayed the same in the future, then the two future Orbacles would be white, just like Orbacle A. If the color turns orange, this means the species is expected to become less prevalent in Minnesota. (Many species decrease in prevalence in the future, some will leave Minnesota entirely.) If the color turns blue, this means the species becomes more prevalent in the future. (Many non-native species are expected to come to Minnesota for the first time.)</p>
+            <p>The Prevalence Score that drives these color changes is a number between 0 and 100. It is derived from what scientists call an area-weighted bird incidence value [2], here calculated for the area of the state of Minnesota. It can be considered to be proportional to the actual population of each species, but it might be more accurately described as how likely you would be to come across this species on a (really long) walk throughout our state. In fact, the scientific models are built upon data from the North American Breeding Bird Survey, a roadside survey conducted annually since 1966 that involves stopping periodically along predefined routes to identify the species present at each location [4].</p>
+
+            <h3>EXPLORE FOR YOURSELF</h3>
+            <p>The interactive data graphic below uses the same data and spatial arrangement as the set of three Orbacles sculptures installed in Minneapolis. Hover your mouse over each module to see how the prevelance of the species in Minnesota is expected to change over time. Clicking on a module brings up a link to additional information about the species.</p>
+            
+            <div class="iframe-container">
+                <iframe loading="lazy" src="orbacles/orbsvis.html" data-embed="true" frameborder="0"></iframe>
+            </div>
+
+            <div class="thumbnails">
+                <div class="thumbnail" style="background-image: url('orbacles/img/thumb1.jpg')">
+                    <a href="orbacles-concept.html"></a>
+                    <div class="caption">
+                        CONCEPT
+                    </div>
+                </div>
+                <div class="thumbnail" style="background-image: url('orbacles/img/thumb2.jpg')">
+                    <a href="orbacles-process.html"></a>
+                    <div class="caption">
+                        PROCESS
+                    </div>
+                </div>
+            </div>
+
+            <h3>TAKING ACTION</h3>
+            <p>Our birds are a cultural marker. They are the voice of Minnesota. Historic climate change is known to have caused shifts in the geographic ranges of many plants and animals, and future climate change is expected to result in an even greater redistribution of species. Here are some things you can do to help our endangered birds:</p>
+            <p><strong>CONSERVE ENERGY:</strong> conserve energy in your own home, buy energy-efficient appliances, walk, bike, carpool and take public transit.</p>
+            <p><strong>EAT LOCAL:</strong> plant a garden, buy local, and compost waste.</p>
+            <p><strong>EDUCATE YOURSELF:</strong> learn about climate change.</p>
+            <p><strong>START CLIMATE CONVERSATIONS AND TAKE ACTION:</strong> Talk with others about climate risks and how you use energy and natural resources. The City’s Sustainability Office coordinates city-wide efforts to reduce greenhouse gas emissions. Local businesses and non-profits offer opportunities to reduce your footprint and save money at home and at work. To learn more about ideas or how to get involved with a local environmental organization to prevent climate change go to: <a href="https://www.ci.minneapolis.mn.us/sustainability/take-action/index.htm">www.ci.minneapolis.mn.us/sustainability/take-action/index.htm</a></p>
+            
+            <h3>DESIGN TEAM, PARTNERS, AND ACKNOWLEDGEMENTS</h3>
+            <p><strong>MINN_LAB</strong> is a design collective composed of architects, landscape architects, and computer scientists. We engage and facilitate cross disciplinary dialogue through the collective creation of site-based installations that foster awareness and critical inquiry into the nature of our cities, and imagine their possible futures.</p>
+            <p>The annual Creative City Challenge commission is made possible by the <strong>Arts, Culture and the Creative Economy</strong> program of the City of Minneapolis, hosted in collaboration with <strong>The Commons</strong> and <strong>Northern Lights.mn</strong> and the <strong>Northern Spark</strong> festival. Additional support was provided by the <strong>University of Minnesota Digital Design Center</strong>. This year's commission is based on the theme Climate Chaos, People Rising.</p><p>This project is made possible, in part, by the generous support of:</p>
+            <p><strong>Arts, Culture and the Creative Economy, City of Minneapolis</strong>, <a href="https://www.minneapolismn.gov/coordinator/arts/acce">https://www.minneapolismn.gov/coordinator/arts/acce</a></p>
+            <p><strong>University of Minnesota Digital Design Center,</strong> <a href="https://ddc.design.umn.edu">https://ddc.design.umn.edu</a></p>
+            <p><strong>MG McGrath</strong>, <a href="https://mgmcgrath.com">https://mgmcgrath.com</a></p>
+            <p><strong>3M Design</strong> (signage materials sponsor), <a href="https://www.3m.com">https://www.3m.com</a></p>
+            <p><strong>Grain Millers</strong>, <a href="https://www.grainmillers.com">https://www.grainmillers.com</a></p>
+            
+            <h3>SCIENTIFIC DATA CREDITS AND REFERENCES</h3>
+            <p>The data visualized come primarily from the <a href="https://www.nrs.fs.fed.us/atlas/bird">Climate Change Bird Atlas (A Spatial Database of 147 Bird Species of the Eastern USA)</a>&nbsp;[1,2]. Typical lengths and wingspans were retrieved from the <a href="http://www.mbr-pwrc.usgs.gov/infocenter.html">Patuxent Bird Identification Infocenter</a>&nbsp;[3].</p>
+            <ol>
+                <li>Matthews, S.N., L. R. Iverson, A.M. Prasad, A. M., and M.P. Peters. 2007-ongoing. A Climate Change Atlas for 147 Bird Species of the Eastern United States [database].&nbsp;<a href="https://www.nrs.fs.fed.us/atlas/bird">https://www.nrs.fs.fed.us/atlas/bird</a>, Northern Research Station, USDA Forest Service, Delaware, Ohio.</li>
+                <li>Matthews, S. N., Iverson, L. R., Prasad, A. M. and Peters, M. P. 2011. Changes in potential habitat of 147 North American breeding bird species in response to redistribution of trees and climate following predicted climate change. Ecography, 34: no. doi: 10.1111/j.1600-0587.2010.06803.x Published online:&nbsp;<a href="http://onlinelibrary.wiley.com/doi/10.1111/j.1600-0587.2010.06803.x/full">http://onlinelibrary.wiley.com/doi/10.1111/j.1600-0587.2010.06803.x/full</a></li>
+                <li>Gough, G.A., Sauer, J.R., Iliff, M. Patuxent Bird Identification Infocenter. 1998. Version 97.1. Patuxent Wildlife Research Center, Laurel, MD.&nbsp;<a href="http://www.mbr-pwrc.usgs.gov/infocenter.html">http://www.mbr-pwrc.usgs.gov/infocenter.html</a></li>
+                <li>Sauer, J. R., D. K. Niven, J. E. Hines, D. J. Ziolkowski, Jr, K. L. Pardieck, J. E. Fallon, and W. A. Link. 2017. The North American Breeding Bird Survey, Results and Analysis 1966 - 2015. Version 2.07.2017 USGS Patuxent Wildlife Research Center, Laurel, MD.&nbsp;<a href="https://www.mbr-pwrc.usgs.gov/bbs/">https://www.mbr-pwrc.usgs.gov/bbs/</a></li>
+            </ol>
+        </div>
+
+        <script src="orbacles/app.js"></script>
+    </body>
+</html>

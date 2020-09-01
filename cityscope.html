@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="cityscope/style.css">
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+        <title>CITYSCOPE — MINN LAB</title>
+    </head>
+    
+    <body>
+        <nav class="topnav">
+            <div class="topnav-bar">
+                <a href="index.html">
+                    <img class="topnav-logo" src="icons/MINN-LAB-Logo.png" alt="MINN LAB Logo">
+                </a>
+                <button onclick="toggleTopnavMenu()">
+                    <img src="icons/bars.svg" alt="Menu Icon">
+                </button>
+            </div>
+            
+            <div id="topnav-menu">
+                <a href="home.html">HOME</a>
+                <a href="instagram.html">INSTAGRAM</a>
+                <div class="project-list">
+                    <a>PROJECTS</a>
+                    <a href="orbacles.html">ORBACLES</a>
+                    <a href="weather-report.html">WEATHER REPORT</a>
+                    <a class="current-page" href="cityscope.html">CITYSCOPE</a>
+                    <a href="postography.html">POSTOGRAPHY</a>
+                </div>
+                <a href="about.html">ABOUT</a>
+                <a href="contact.html">CONTACT</a>
+            </div>
+        </nav>
+        <div id="topnav-overlay"></div>
+
+
+        <nav class="sidenav">
+            <a href="index.html"><img class="sidenav-logo" src="icons/MINN-LAB-Logo.png" alt=""></a>
+            <a href="home.html">HOME</a>
+            <a href="instagram.html">INSTAGRAM</a>
+            <div class="projects">
+                <a onclick="toggleProjectList()">PROJECTS</a>
+                <div id="project-list">
+                    <a href="orbacles.html">ORBACLES</a>
+                    <a href="weather-report.html">WEATHER REPORT</a>
+                    <a class="current-page" href="cityscope.html">CITYSCOPE</a>
+                    <a href="postography.html">POSTOGRAPHY</a>
+                </div>
+            </div>
+            <a href="about.html">ABOUT</a>
+            <a href="contact.html">CONTACT</a>
+        </nav>
+
+        <div class="main">
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-slide active-slide">
+                        <img src="cityscope/img/img_01.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="cityscope/img/img_02.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="cityscope/img/img_03.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="cityscope/img/img_04.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="cityscope/img/img_05.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="cityscope/img/img_06.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="cityscope/img/img_07.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="cityscope/img/img_08.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="cityscope/img/img_09.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="cityscope/img/img_10.jpg" alt="">
+                    </div>
+
+                    <button class="prevBtn">&#10094;</a>
+                    <button class="nextBtn">&#10095;</a>
+                </div>
+            </div>
+
+            <h2>
+                CITYSCOPE
+                <br>
+                Minneapolis, MN
+                <br>
+                2015
+            </h2>
+            <p>Beginning with the elemental geometry of the cube, CityScope creates a field of whimsical follies that invite participation and new ways of seeing. While a central periscope projects your view to the city, the periphery structures recall the mechanical histories of the site. Through a kinetic counter-balanced system, the cubes can be lifted and entered, creating intimacy amidst the spectacle. Looking in and looking out, the structures present a new lens of observing the built environment.</p>
+            <p>The project is a result of a partnership between UMN School of Architecture and Minn_Lab, a collaborative of architects, landscape architects, and educators. Led by designer and educator, Molly Reichert, thirteen graduate architecture students developed the project during an eight-week studio course. Evolving the project through a tactile, iterative process of radical making, the students benefited from critique and counsel from Minn_Lab, guest artists, and technicians.</p>
+
+            <div class="thumbnails">
+                <div class="thumbnail" style="background-image: url('cityscope/img/thumb1.jpeg')">
+                    <a href="cityscope-process.html"></a>
+                    <div class="caption">
+                        PROCESS
+                    </div>
+                </div>
+                <div class="thumbnail" style="background-image: url('cityscope/img/thumb2.jpeg')">
+                    <a href="cityscope-review.html"></a>
+                    <div class="caption">
+                        REVIEW: RAPSON HALL
+                    </div>
+                </div>
+                <div class="thumbnail" style="background-image: url('cityscope/img/thumb3.jpeg')">
+                    <a href="cityscope-event.html"></a>
+                    <div class="caption">
+                        NORTHERN SPARK EVENT
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="cityscope/app.js"></script>
+    </body>
+</html>

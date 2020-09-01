@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="cityscope-event/style.css">
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+        <title>CITYSCOPE EVENT — MINN LAB</title>
+    </head>
+    
+    <body>
+        <nav class="topnav">
+            <div class="topnav-bar">
+                <a href="index.html">
+                    <img class="topnav-logo" src="icons/MINN-LAB-Logo.png" alt="MINN LAB Logo">
+                </a>
+                <button onclick="toggleTopnavMenu()">
+                    <img src="icons/bars.svg" alt="Menu Icon">
+                </button>
+            </div>
+            
+            <div id="topnav-menu">
+                <a href="home.html">HOME</a>
+                <a href="instagram.html">INSTAGRAM</a>
+                <div class="project-list">
+                    <a>PROJECTS</a>
+                    <a href="orbacles.html">ORBACLES</a>
+                    <a href="weather-report.html">WEATHER REPORT</a>
+                    <a class="current-page" href="cityscope.html">CITYSCOPE</a>
+                    <a href="postography.html">POSTOGRAPHY</a>
+                </div>
+                <a href="about.html">ABOUT</a>
+                <a href="contact.html">CONTACT</a>
+            </div>
+        </nav>
+        <div id="topnav-overlay"></div>
+
+
+        <nav class="sidenav">
+            <a href="index.html"><img class="sidenav-logo" src="icons/MINN-LAB-Logo.png" alt=""></a>
+            <a href="home.html">HOME</a>
+            <a href="instagram.html">INSTAGRAM</a>
+            <div class="projects">
+                <a onclick="toggleProjectList()">PROJECTS</a>
+                <div id="project-list">
+                    <a href="orbacles.html">ORBACLES</a>
+                    <a href="weather-report.html">WEATHER REPORT</a>
+                    <a class="current-page" href="cityscope.html">CITYSCOPE</a>
+                    <a href="postography.html">POSTOGRAPHY</a>
+                </div>
+            </div>
+            <a href="about.html">ABOUT</a>
+            <a href="contact.html">CONTACT</a>
+        </nav>
+
+        <div class="main">
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-slide active-slide">
+                        <img src="cityscope-event/img/img_01.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="cityscope-event/img/img_02.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="cityscope-event/img/img_03.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="cityscope-event/img/img_04.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="cityscope-event/img/img_05.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="cityscope-event/img/img_06.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="cityscope-event/img/img_07.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="cityscope-event/img/img_08.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="cityscope-event/img/img_09.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="cityscope-event/img/img_10.jpg" alt="">
+                    </div>
+        
+                    <button class="prevBtn" onclick="advanceSlide(-1)">&#10094;</a>
+                    <button class="nextBtn" onclick="advanceSlide(1)">&#10095;</a>
+                </div>
+        
+                <div class="dots">
+                    <span class="dot active-dot" onclick="showSlide(0)"></span>
+                    <span class="dot" onclick="showSlide(1)"></span>
+                    <span class="dot" onclick="showSlide(2)"></span>
+                    <span class="dot" onclick="showSlide(3)"></span>
+                    <span class="dot" onclick="showSlide(4)"></span>
+                    <span class="dot" onclick="showSlide(5)"></span>
+                    <span class="dot" onclick="showSlide(6)"></span>
+                    <span class="dot" onclick="showSlide(7)"></span>
+                    <span class="dot" onclick="showSlide(8)"></span>
+                    <span class="dot" onclick="showSlide(9)"></span>
+                </div>
+            </div>
+        </div>
+
+        <script src="cityscope-event/app.js"></script>
+    </body>
+</html>

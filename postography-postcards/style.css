@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap');
+
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+html, body { 
+  font-family: 'Raleway', sans-serif;
+  margin: 0;
+  width: 100%; 
+  height: 100%;
+}
+
+/* TOPNAV ********************************************************************** */
+
+/* For Mobile */
+.topnav {
+  width: 100%;
+  z-index: 2;
+  position: fixed;
+  background-color: white;
+}
+
+.topnav-bar {
+  padding: 10px 20px;
+  border-bottom: 1px solid #949494;
+  display: flex;
+  justify-content: space-between;
+}
+
+.topnav-logo {
+  height: 45px;
+}
+
+.topnav-bar button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.topnav-bar svg {
+  fill: #949494;
+}
+
+.topnav-bar svg:hover {
+  fill: black;
+  cursor: pointer;
+}
+
+#topnav-menu {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-bottom: 1px solid #949494;
+
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  transition: height 0.75s, padding 0.75s;
+}
+
+#topnav-menu a {
+  text-align: center;
+  margin: 15px;
+
+  color: #949494;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+#topnav-menu .current-page, #topnav-menu a:hover {
+  color: black;
+}
+
+#topnav-menu .project-list {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  text-align: center;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+#topnav-menu .project-list a:first-child {
+  margin: 10px 25%;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #949494;
+}
+
+#topnav-overlay {
+  position: fixed; /* Sit on top of the page content */
+  display: none; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 1;
+}
+
+/* For Desktops */
+@media only screen and (min-width: 768px) {
+  .topnav {
+    display: none;
+  }
+}
+
+/* SIDENAV ********************************************************************** */
+
+/* For Mobile */
+.sidenav {
+  display: none;
+}
+
+/* For Desktops */
+@media only screen and (min-width: 768px) {
+  .main {
+    margin-left: 250px;
+  }
+
+  .sidenav {
+    width: 250px;
+    height: 100%;
+    position: fixed;
+    padding: 80px 0px 50px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* border: 2px dashed coral; */
+  }
+  
+  .sidenav-logo {
+    width: 120px;
+    margin-bottom: 50px;
+  }
+  
+  .sidenav a {
+    color: #949494;
+    text-decoration: none;
+    font-size: 14px;
+    margin: 7px 0;
+  }
+  
+  .sidenav .current-page, .sidenav a:hover {
+    color: black;
+  }
+
+  .projects {
+    margin: 4px 0;
+  }
+
+  .projects a:first-child {
+    cursor: pointer;
+  }
+
+  #project-list a:first-child {
+    margin-top: 20px;
+  }
+
+  #project-list {
+    display: flex;
+    flex-direction: column;
+    padding-left: 14px;
+
+    height: 0;
+    overflow: hidden;
+    transition: height 0.75s;
+  }
+}
+
+/* MAIN ********************************************************************** */
+
+.main {
+  display: grid;
+  place-items: center;
+}
+
+.main {
+  padding-top: 70px;
+  padding-bottom: 30px;
+}
+
+/* For Desktops */
+@media only screen and (min-width: 768px) {
+  .main {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+
+/* CAROUSEL ********************************************************************** */
+
+.main {
+  height: 100%;
+}
+
+.carousel-container {
+  width: 90%;
+  height: 90%;
+  margin: auto;
+  /* border: 2px solid red; */
+}
+
+.carousel {
+  min-width: 200px;
+  width: 100%;
+  height: 90%;
+  position: relative;
+  /* border: 2px solid blue; */
+}
+
+.carousel-slide {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transition: opacity 0.75s;
+  /* border: 5px solid lime; */
+}
+
+.active-slide {
+  opacity: 1;
+  transition: opacity 0.75s;
+}
+
+.carousel-slide img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  /* border: 2px solid green; */
+}
+
+.carousel button {
+  color: #e0e0e0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 30px;
+  padding: 0 5%;
+  position: absolute;
+  top: 0;
+  height: 100%;
+}
+
+.carousel button:hover {
+  color: black;
+}
+
+.prevBtn {
+  left: 0;
+}
+
+.nextBtn {
+  right: 0;
+}
+
+
+
+.dots {
+  text-align: center;
+  margin: 10px auto;
+  width: 90%;
+  /* border: 2px dashed greenyellow; */
+}
+
+.dot {
+  cursor: pointer;
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 50%;
+  margin: 0 5px;
+  background-color: #e0e0e0;
+  display: inline-block;
+}
+
+.active-dot, .dot:hover {
+  background-color: black;
+}

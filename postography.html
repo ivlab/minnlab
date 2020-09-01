@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="postography/style.css">
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+        <title>POSTOGRAPHY — MINN LAB</title>
+    </head>
+    
+    <body>
+        <nav class="topnav">
+            <div class="topnav-bar">
+                <a href="index.html">
+                    <img class="topnav-logo" src="icons/MINN-LAB-Logo.png" alt="MINN LAB Logo">
+                </a>
+                <button onclick="toggleTopnavMenu()">
+                    <img src="icons/bars.svg" alt="Menu Icon">
+                </button>
+            </div>
+            
+            <div id="topnav-menu">
+                <a href="home.html">HOME</a>
+                <a href="instagram.html">INSTAGRAM</a>
+                <div class="project-list">
+                    <a>PROJECTS</a>
+                    <a href="orbacles.html">ORBACLES</a>
+                    <a href="weather-report.html">WEATHER REPORT</a>
+                    <a href="cityscope.html">CITYSCOPE</a>
+                    <a class="current-page" href="postography.html">POSTOGRAPHY</a>
+                </div>
+                <a href="about.html">ABOUT</a>
+                <a href="contact.html">CONTACT</a>
+            </div>
+        </nav>
+        <div id="topnav-overlay"></div>
+
+
+        <nav class="sidenav">
+            <a href="index.html"><img class="sidenav-logo" src="icons/MINN-LAB-Logo.png" alt=""></a>
+            <a href="home.html">HOME</a>
+            <a href="instagram.html">INSTAGRAM</a>
+            <div class="projects">
+                <a onclick="toggleProjectList()">PROJECTS</a>
+                <div id="project-list">
+                    <a href="orbacles.html">ORBACLES</a>
+                    <a href="weather-report.html">WEATHER REPORT</a>
+                    <a href="cityscope.html">CITYSCOPE</a>
+                    <a class="current-page" href="postography.html">POSTOGRAPHY</a>
+                </div>
+            </div>
+            <a href="about.html">ABOUT</a>
+            <a href="contact.html">CONTACT</a>
+        </nav>
+
+        <div class="main">
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-slide active-slide">
+                        <img src="postography/img/img_01.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography/img/img_02.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography/img/img_03.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography/img/img_04.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography/img/img_05.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography/img/img_06.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography/img/img_07.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography/img/img_08.jpg" alt="">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="postography/img/img_09.jpg" alt="">
+                    </div>
+
+                    <button class="prevBtn">&#10094;</a>
+                    <button class="nextBtn">&#10095;</a>
+                </div>
+            </div>
+
+            <h2>
+                POSTOGRAPHY
+                <br>
+                Minneapolis, MN
+                <br>
+                2014
+            </h2>
+            <p>POSTography visualized the density of public thought related to the city, and creates a vehicle for meaningful engagement with the inhabitants of the city.</p>
+            <p>In this piece, the iconic Minneapolis central post office—a symbol of sending and receiving information—is the conceptual activator.  A grid of luminous balloons floats above the heads of visitors and is weighted by postcards written by each person passing underneath, relaying responses to the prompt “My Wish for My City.”  As the installation receives more postcards, the grid of balloons is pulled towards the ground; this weight and detail of “thought,” then, can be sense both from a distance and read up close.  At the end of the night, the postcards are collected and mailed back to the writer prior to next year’s Northern Spark.</p>
+
+            <div class="thumbnails">
+                <div class="thumbnail" style="background-image: url('postography/img/thumb1.jpeg')">
+                    <a href="postography-process.html"></a>
+                    <div class="caption">
+                        PROCESS
+                    </div>
+                </div>
+                <div class="thumbnail" style="background-image: url('postography/img/thumb2.jpeg')">
+                    <a href="postography-postcards.html"></a>
+                    <div class="caption">
+                        POSTCARDS
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="postography/app.js"></script>
+    </body>
+</html>
